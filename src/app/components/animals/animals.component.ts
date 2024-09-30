@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Animal } from '../../dto/animal.dto';
 import { AnimalService } from '../../services/animal.service';
 import { AnimalCardComponent } from "../animal-card/animal-card.component";
-import { NgFor, NgForOf } from '@angular/common';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-animals',
@@ -18,7 +18,7 @@ export class AnimalsComponent implements OnInit {
   constructor(
     private animalService: AnimalService
   ) { }
-  
+
   async ngOnInit(): Promise<void> {
     (await this.animalService.findAll()).subscribe(response => {
       this.animals = response as Animal[];
